@@ -1,0 +1,71 @@
+:root {
+    --body_gradient_left: #d9f6f6;
+    --body_gradient_right: #91e3e3;
+    --form_bg: #ffffff;
+    --input_bg: #E5E5E5;
+    --input_hover: #eaeaea;
+    --submit_bg: #1FCC44;
+    --submit_hover: #40e263;
+    --icon_color: #6b6b6b;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+    /* create a linear gradient*/
+    background-image: linear-gradient(to right, var(--body_gradient_left), var(--body_gradient_right));
+    display: flex;
+}
+
+.upper-cards {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px; /* Espacio entre las tarjetas de arriba y la tarjeta de abajo */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Cambio la dirección para que las tarjetas se muestren en columna */
+    align-items: center;
+    width: 80%;
+}
+
+.card i {
+    margin-bottom: 25px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 22px;  /* Ligero ajuste en el borde para suavizar */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);  /* Sombra más suave */
+    padding: 40px 20px;
+    width: calc(33% - 20px);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 10px;
+    cursor: pointer;  /* Estilo de cursor para indicar interactividad */
+}
+
+.card:hover {
+    transform: translateY(-8px);  /* Elevación un poco más suave en hover */
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);  /* Sombra ligeramente más extendida en hover */
+}
+
+h2 {
+    margin-top: 0;
+    color: #2c2c2c;  /* Un tono más oscuro para mejorar contraste */
+    font-weight: 600;  /* Un peso intermedio entre normal y bold para un balance */
+    font-size: 24px;
+}
+
+p {
+    color: #666;  /* Un poco más oscuro para mejor legibilidad */
+    font-size: 18px;
+}
+

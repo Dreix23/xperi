@@ -1,0 +1,236 @@
+:root {
+    --body_gradient_left: #d9f6f6;
+    --body_gradient_right: #91e3e3;
+    --form_bg: #ffffff;
+    --input_bg: #E5E5E5;
+    --input_hover: #eaeaea;
+    --submit_bg: #1FCC44;
+    --submit_hover: #40e263;
+    --icon_color: #6b6b6b;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* make the body full height*/
+    height: 100vh;
+    /* set our custom font */
+    font-family: 'Roboto',
+    sans-serif;
+    /* create a linear gradient*/
+    background-image: linear-gradient(to right, var(--body_gradient_left), var(--body_gradient_right));
+    display: flex;
+}
+
+#form_wrapper {
+    width: 1000px;
+    height: 700px;
+    /* this will help us center it*/
+    margin: auto;
+    background-color: var(--form_bg);
+    border-radius: 50px;
+    /* make it a grid container*/
+    display: grid;
+    /* with two columns of same width*/
+    grid-template-columns: 1fr 1fr;
+    /* with a small gap in between them*/
+    grid-gap: 5vw;
+    /* add some padding around */
+    padding: 5vh 15px;
+}
+
+#form_left {
+    /* center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form_left img {
+    width: 100%; /* Ajustar al 100% del contenedor padre */
+    max-width: 700px; /* Establece un ancho máximo */
+    max-height: 700px; /* Establece una altura máxima */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin recortar */
+}
+
+
+#form_right {
+    display: grid;
+    /* single column layout */
+    grid-template-columns: 1fr;
+    /* have some gap in between elements*/
+    grid-gap: 20px;
+    padding: 10% 5%;
+}
+
+h1,
+span {
+    text-align: center;
+}
+
+.input_container {
+    background-color: var(--input_bg);
+    /* vertically align icon and text inside the div*/
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.input_container:hover {
+    background-color: var(--input_hover);
+}
+
+.input_container,
+#input_submit {
+    height: 60px;
+    /* make the borders more round */
+    border-radius: 30px;
+    width: 100%;
+}
+
+.input_field {
+    /* customize the input tag with lighter font and some padding*/
+    color: var(--icon_color);
+    background-color: inherit;
+    width: 90%;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+.input_field:hover,
+.input_field:focus {
+    /* remove the outline */
+    outline: none;
+}
+
+#input_submit, #input_submit_reg {
+    background-color: var(--submit_bg);
+    padding-left: 0;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    height: 60px;
+    border-radius: 30px;
+    width: 100%;
+}
+
+#input_submit:hover, #input_submit_reg:hover {
+    background-color: var(--submit_hover);
+    transition: background-color, 1s;
+    cursor: pointer;
+}
+
+
+
+/* shift it a bit lower */
+#create_account {
+    display: block;
+    position: relative;
+    top: 30px;
+}
+
+a {
+    /* remove default underline */
+    text-decoration: none;
+    color: var(--submit_bg);
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--submit_hover);
+}
+
+i {
+    color: var(--icon_color);
+}
+
+/* make it responsive */
+@media screen and (max-width:768px) {
+
+    /* make the layout  a single column and add some margin to the wrapper */
+    #form_wrapper {
+        grid-template-columns: 1fr;
+        margin-left: 10px;
+        margin-right: 10px;
+
+    }
+    /* on small screen we don't display the image */
+    #form_left {
+        display: none;
+    }
+}
+
+#register_form {
+    display: none; /* Asegúrate de que el formulario de registro esté oculto inicialmente */
+    grid-column: 1 / -1; /* Esto hace que el formulario de registro ocupe toda la columna */
+}
+
+#basic_info_form {
+    display: grid; /* Asegúrate de que el formulario del Paso 1 se muestre inicialmente */
+}
+
+#additional_info_form {
+    display: none; /* Asegúrate de que el formulario del Paso 2 esté oculto inicialmente */
+    grid-column: 1 / -1; /* Esto hace que el formulario del Paso 2 ocupe toda la columna */
+}
+
+/* Estilos para el popup */
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #eec2e8;
+    z-index: 1000;
+    width: 300px;
+    box-shadow: 0 0 10px rgb(159, 238, 238);
+    border-radius: 10px;
+}
+
+.popup_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.close_popup_btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.popup_body {
+    margin-bottom: 20px;
+}
+
+.popup_footer {
+    text-align: right;
+}
+
+.accept_popup_btn {
+    background-color: var(--submit_bg);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accept_popup_btn:hover {
+    background-color: var(--submit_hover);
+    transition: background-color, 0.3s;
+}

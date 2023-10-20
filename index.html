@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección de Nivel de Usuario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="upper-cards">
+        <div class="card" id="municipalidades" onclick="navigate('municipalidades')">
+            <i class="fas fa-city fa-3x"></i>
+            <h2>Municipalidades</h2>
+            <p>Accede como usuario de Municipalidades</p>
+        </div>
+
+        <div class="card" id="empresas" onclick="navigate('empresas')">
+            <i class="fas fa-briefcase fa-3x"></i>
+            <h2>Empresas</h2>
+            <p>Accede como usuario de Empresas</p>
+        </div>
+    </div>
+
+    <div class="card" id="independientes" onclick="navigate('login_Indep')">
+        <i class="fas fa-user fa-3x"></i>
+        <h2>Independientes</h2>
+        <p>Accede como usuario Independiente</p>
+    </div>
+</div>
+
+<script>
+    function navigate(userType) {
+        switch(userType) {
+            case 'municipalidades':
+                window.location.href = "municipalidades.html";
+                break;
+            case 'empresas':
+                window.location.href = "empresas.html";
+                break;
+            case 'login_Indep':
+                window.location.href = "login_Indep.html";
+                break;
+            default:
+                console.error('Tipo de usuario no reconocido.');
+        }
+    }
+</script>
+</body>
+</html>

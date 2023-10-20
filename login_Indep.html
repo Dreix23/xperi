@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Solicitud en Dos Pasos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <script>
+        function showNextForm() {
+            document.getElementById('basic_info_form').style.display = 'none';
+            document.getElementById('additional_info_form').style.display = 'grid';
+        }
+
+        function showPrevForm() {
+            document.getElementById('basic_info_form').style.display = 'grid';
+            document.getElementById('additional_info_form').style.display = 'none';
+        }
+
+        function submitRequest() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+    </script>
+</head>
+
+<body>
+<div id="form_wrapper">
+    <div id="form_left">
+        <img src="icon.png" alt="computer icon">
+    </div>
+    <div id="form_right">
+        <!-- Paso 1: Formulario de Solicitud Básica -->
+        <div id="basic_info_form">
+            <h1>Independientes - Paso 1/2</h1>
+            <div class="input_container">
+                <i class="fas fa-user"></i>
+                <input placeholder="Nombre" type="text" name="name" id="field_name" class='input_field'>
+            </div>
+            <div class="input_container">
+                <i class="fas fa-id-card"></i>
+                <input placeholder="DNI" type="text" name="dni" id="field_dni" class='input_field'>
+            </div>
+            <div class="input_container">
+                <i class="fas fa-city"></i>
+                <input placeholder="Ciudad" type="text" name="city" id="field_city" class='input_field'>
+            </div>
+            <input type="button" value="Siguiente" id='input_submit' onclick="showNextForm()" class='input_field'>
+        </div>
+
+        <!-- Paso 2: Formulario de Información Adicional -->
+        <div id="additional_info_form" style="display:none;">
+            <h1>Independientes - Paso 2/2</h1>
+            <div class="input_container">
+                <i class="fas fa-car"></i>
+                <input placeholder="Placa" type="text" name="placa" id="field_placa" class='input_field'>
+            </div>
+            <div class="input_container">
+                <i class="fas fa-id-card"></i>
+                <input placeholder="Brevete" type="text" name="brevete" id="field_brevete" class='input_field'>
+            </div>
+            <div class="input_container">
+                <i class="fas fa-upload"></i>
+                <input type="file" name="documents" id="field_documents" class='input_field'>
+            </div>
+            <input type="button" value="Enviar Solicitud" id='input_submit_reg' onclick="submitRequest()" class='input_field'>
+            <span><a href="javascript:showPrevForm()">Volver al Paso 1</a></span>
+        </div>
+    </div>
+</div>
+
+<div id="popup" style="display:none;">
+    <div class="popup_header">
+        <span>Solicitud enviada</span>
+        <button onclick="closePopup()" class="close_popup_btn">&times;</button>
+    </div>
+    <div class="popup_body">
+        Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto.
+    </div>
+    <div class="popup_footer">
+        <button onclick="closePopup()" class="accept_popup_btn">Aceptar</button>
+    </div>
+</div>
+
+
+</body>
+</html>
